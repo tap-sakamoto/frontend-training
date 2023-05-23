@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // ================================================================================-
+        // alert();
+        // // それぞれの呼び出し方
+        // alert('sayHi()');
+        // sayHi();    //　OK
+        // alert('sayHi2()');
+        // // sayHi2();   //　error
+        // alert('alsert(sayHi)');
+        // alert(sayHi);   //　ただの文字列みたいな感じで表示される
+        // alert('alsert(sayHi2)');
+        // alert(sayHi2);  //　何も表示されない alert();と同じ
+        //
+        // // 関数宣言
+        // function sayHi() {
+        //     alert('Hello');
+        // }
+        // // 関数式
+        // sayHi2 = function () {
+        //     alert('Hello');
+        // }
+        //
+        // // それぞれの呼び出し方
+        // alert('sayHi()');
+        // sayHi();    //　関数の中身が実行される
+        // alert('sayHi2()');
+        // sayHi2();   //　関数式の中身が実行される
+        // alert('alsert(sayHi)');
+        // alert(sayHi);   //　ただの文字列みたいな感じで表示される
+        // alert('alsert(sayHi2)');
+        // alert(sayHi2);  //　ただの文字列みたいな感じで表示される
+        //
+        // // コピーする時は
+        // let func = sayHi2;    // こっちは関数そのものが格納される
+        // let func2 = sayHi2(); // こっちは結果が格納される
+        // ================================================================================-
+
+        // function ask(question, yes, no) {
+        //     if (confirm(question)) yes()
+        //     else no();
+        // }
+        // function showOk() {
+        //     alert( "You agreed." );
+        // }
+        // function showCancel() {
+        //     alert( "You canceled the execution." );
+        // }
+        //
+        // ask("Do you agree?", showOk, showCancel);
+        //
+        // // ↓　のように書き換えられる(showOK / showCancel )
+        // ask(
+        //     "Do you agree?",
+        //     function() { alert("You agreed."); },
+        //     function() { alert("You canceled the execution."); }
+        // );
+        // ================================================================================-
+
+        sayHi3("John"); // Hello, John
+        function sayHi3(name) {
+            console.log('sayHi3 made');
+            alert( `Hello, ${name}` );
+        }
+        // sayHi4("John"); // エラー!
+        let sayHi4 = function(name) {  // (*) no magic any more
+            console.log('sayHi4 made');
+            alert( `Hello, ${name}` );
+        };
+        sayHi4("John"); // not error
+        // ================================================================================-
+
+        // アロー関数
+        let sum = (a, b) => a + b;
+        alert(sum(1, 2)); // 3
+        alert(sum(3, 5)); // 8
+
+        let double = n => n * 2; // 引数が一つの時は（）不要
+        alert(double(3)); // 6
+
+        let sayHi5 = () => alert("Hello!"); // 引数なしは（）だけ必要
+        sayHi5();
+
+        // ================================================================================-
+        // 書き換え
+        function ask(question, yes, no) {
+            if (confirm(question)) yes()
+            else no();
+        }
+
+        // ask(
+        //     "Do you agree?",
+        //     function () {
+        //         alert("You agreed.");
+        //     },
+        //     function () {
+        //         alert("You canceled the execution.");
+        //     }
+        // );
+        // ↓
+        // ask(
+        //     "Do you agree?",
+        //     () => alert("You agreed."),
+        //     () => alert("You canceled the execution.")
+        // );
+
+        // 複数行だったら、、、{}で囲む
+        ask(
+            "Do you agree?",
+            () => {
+                let msg = 'ok';
+                alert(msg)
+            },
+            () => {
+                let msg = 'ng';
+                alert(msg)
+            }
+        );
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
