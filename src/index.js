@@ -1,2 +1,2 @@
-import {getApi} from "./getApi";
-import './progressBar.css';
+import './scss/app.scss';
+import "./js/getApi";
