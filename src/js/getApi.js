@@ -1,4 +1,4 @@
-import axios from "../node_modules/axios";
+import axios from "axios";
 import {showDateTime} from "./showDateTime";
 
 export function getApi() {
@@ -8,19 +8,19 @@ export function getApi() {
         timeout: 100000,
         onDownloadProgress: (progressEvent) => {
             let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-            console.log('total' + progressEvent.total);
-            console.log('loaded' + progressEvent.loaded);
-            document.getElementById('test1').style.width = percentCompleted * 5 + 'px';
-            document.getElementById('test1').innerHTML = percentCompleted + '%';
-            document.getElementById('test2').innerHTML = 'now loading';
+            console.log('percent : ' + percentCompleted);
+            document.getElementById('progressbar').ariaValuenow = percentCompleted;
+            document.getElementById('progressLabel').style.width = percentCompleted + '%';
+            document.getElementById('progressLabel').innerHTML = percentCompleted + '%';
+            document.getElementById('loadingCondition').innerHTML = 'now loading';
         },
     })
         .then((response) => {
-            document.getElementById('test2').innerHTML = 'completed';
+            document.getElementById('loadingCondition').innerHTML = 'completed';
             showDateTime();
         })
         .catch((error) => {
-            document.getElementById('test2').innerHTML = 'error';
+            document.getElementById('loadingCondition').innerHTML = 'error';
         })
 }
 

@@ -1,0 +1,32 @@
+$baseColor: #19afaf;
+$baseSize: 15px;
+$baseLineSize: 2px;
+$buttonColor1: #fff;
+$buttonColor2: $baseColor;
+
+body{
+    background-image: url("../img/background_test.jpg");
+    background-size: cover;
+    background-position: 0% 0%;
+    font-size: $baseSize;
+}
+button{
+    background: $buttonColor2;
+    color: $buttonColor1;
+    font-size: $baseSize;
+    border: $baseLineSize solid $buttonColor2;
+    border-radius: 10px;
+    padding: 8px 20px;
+    cursor: pointer;
+    &:hover{
+        background: $buttonColor1;
+        color: $buttonColor2;
+    }
+}
+.progressBar {
+    border: $baseLineSize solid $baseColor;
+    width: 500px;
+}
+.page1Title{
+    color: $baseColor
+}

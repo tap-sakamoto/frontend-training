@@ -1,0 +1,3 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+//順序大事　bootstrapを読むより前にcustomを読まないとcustomの設定が上書きされてしまう

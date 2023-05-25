@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- for responsive -->
     <title>UseWebpack</title>
 </head>
 <body>
-<button id="getApiButton">button</button>
-<p class="classTest" id="test1">0 %</p>
-<p id="test2">not completed</p>
-<p id="completeDate"></p>
+<div class="container">
+    <h1 class="page1Title">Test ProgressBar</h1>
+    <button class="btn btn-primary" id="getApiButton">button</button>
+    <div class="progress" id="progressbar" role="progressbar" aria-label="Example with label" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" id="progressLabel"></div>
+    </div>
+    <p id="loadingCondition">not completed</p>
+    <p id="completeDate"></p>
+</div>
 <script type="module" src="./js/bundle.js"></script>
 </body>
 </html>
