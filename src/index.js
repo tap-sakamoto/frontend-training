@@ -1,2 +1,2 @@
 import './scss/app.scss';
-import "./js/getApi";
+import './js/getApi';
