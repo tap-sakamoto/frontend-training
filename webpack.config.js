@@ -34,6 +34,11 @@ module.exports = {
                 // More information here https://webpack.js.org/guides/asset-modules/
                 type: "asset",
             },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+            },
         ],
     },
     devServer: {
