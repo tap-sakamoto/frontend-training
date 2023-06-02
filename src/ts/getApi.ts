@@ -40,9 +40,9 @@ export function getApi() {
         })
 }
 
-// const elementGetApiButton = document.getElementById('getApiButton');
-// console.log('elementGetApiButton')
-// if (elementGetApiButton !== null) {
-//     console.log('elementGetApiButton')
-//     elementGetApiButton.onclick = getApi;
-// }
+const elementGetApiButton = document.getElementById('getApiButton');
+console.log('elementGetApiButton')
+if (elementGetApiButton !== null) {
+    console.log('elementGetApiButton')
+    elementGetApiButton.onclick = getApi;
+}
