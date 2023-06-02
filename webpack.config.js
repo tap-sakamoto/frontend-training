@@ -3,17 +3,26 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: './src/index.ts',
+    devtool: 'inline-source-map',
     output: {
-        filename: 'bundle.js',
+        filename: 'bundle_ts.js',
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [new HtmlWebpackPlugin({  // Also generate a test.html
         filename: 'index.html',
         template: 'src/index.html'
     })],
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.s[ac]ss$/i,
                 use: [
@@ -29,15 +38,15 @@ module.exports = {
                 test: /\.html$/i,
                 loader: "html-loader",
             },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     loader: 'babel-loader',
+            // },
             {
                 test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
                 // More information here https://webpack.js.org/guides/asset-modules/
                 type: "asset",
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
             },
         ],
     },
